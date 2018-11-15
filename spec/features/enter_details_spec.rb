@@ -1,10 +1,10 @@
-feature "Enter name and birthday" do
-  scenario "should ask for your name" do
+feature "It is your Birthday" do
+  scenario "wishes you Happy Birthday" do
     visit '/'
-    expect(page).to have_text "What is your name?"
-  end
-  scenario "should ask for your birthday" do
-    visit '/'
-    expect(page).to have_text "What is your Birthday?"
+    fill_in "name", with: "Will"
+    fill_in "day", with: Time.now.strftime("%-d")
+    fill_in "month", with: Time.now.strftime("%B")
+    click_button "Submit"
+    expect(page).to have_text "Happy Birthday Will"
   end
 end
