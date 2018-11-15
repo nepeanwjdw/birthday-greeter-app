@@ -5,8 +5,7 @@ class BirthdayGreeter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "testing infrastructure"
-    # erb :index
+    erb :index
   end
 
   # get '/happybirthday' do
