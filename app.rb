@@ -8,11 +8,11 @@ class BirthdayGreeter < Sinatra::Base
     erb :index
   end
 
-  # get '/happybirthday' do
-  #   erb :happybirthday
-  # end
-  #
-  # get '/countdown' do
+  post '/happybirthday' do
+    erb :birthday
+  end
+
+  # post '/countdown' do
   #   erb :countdown
   # end
 
