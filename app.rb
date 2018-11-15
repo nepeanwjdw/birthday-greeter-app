@@ -11,23 +11,9 @@ class BirthdayGreeter < Sinatra::Base
 
   post '/birthday' do
     @name = params[:name]
-    @day = params[:day]
-    @month = params[:month]
-    if @day == "15" && @month == "November"
-      erb :happybirthday
-    else
-      erb :countdown
-    end
-    # birthday?(day, month) ?  :
-  end
-
-  get '/happybirthday' do
-    @name = params[:name]
-    erb :happybirthday
-  end
-
-  get '/countdown' do
-    erb :countdown
+    day = params[:day]
+    month = params[:month]
+    birthday?(day, month) ? (erb :happybirthday) : (erb :countdown)
   end
 
   run! if app_file == $0
