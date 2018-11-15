@@ -5,7 +5,7 @@ feature "It is your Birthday" do
     fill_in "day", with: "15"
     fill_in "month", with: "November"
     click_button "Submit"
-    expect(page).to have_text "Happy Birthday Will"
+    expect(page).to have_text "Happy Birthday Will!"
   end
 end
 

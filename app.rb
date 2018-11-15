@@ -10,17 +10,19 @@ class BirthdayGreeter < Sinatra::Base
   end
 
   post '/birthday' do
-    day = params[:day]
-    month = params[:month]
-    if day == "15" && month == "November"
-      redirect '/happybirthday'
+    @name = params[:name]
+    @day = params[:day]
+    @month = params[:month]
+    if @day == "15" && @month == "November"
+      erb :happybirthday
     else
-      redirect './countdown'
+      erb :countdown
     end
     # birthday?(day, month) ?  :
   end
 
   get '/happybirthday' do
+    @name = params[:name]
     erb :happybirthday
   end
 
