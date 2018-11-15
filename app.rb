@@ -6,14 +6,14 @@ class BirthdayGreeter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    erb :index
+    erb(:index)
   end
 
   post '/birthday' do
     @name = params[:name]
     day = params[:day]
     month = params[:month]
-    birthday?(day, month) ? (erb :happybirthday) : (erb :countdown)
+    birthday?(day, month) ? erb(:happybirthday) : erb(:countdown)
   end
 
   run! if app_file == $0
