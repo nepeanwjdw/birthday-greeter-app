@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './lib/check_birthday'
+require 'check_birthday'
 
 class BirthdayGreeter < Sinatra::Base
 
@@ -13,7 +13,8 @@ class BirthdayGreeter < Sinatra::Base
     @name = params[:name]
     day = params[:day]
     month = params[:month]
-    birthday?(day, month) ? erb(:happybirthday) : erb(:countdown)
+    @days_remaining = days_remaining?(day, month)
+    @days_remaining == 0 ? erb(:happybirthday) : erb(:countdown)
   end
 
   run! if app_file == $0
